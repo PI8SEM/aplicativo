@@ -3,3 +3,70 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    --primary-color: #6a11cb;
+}
+body {
+    min-height: 100vh;
+}
+
+#corpo-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.campo {
+    width: 300px;
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+
+.input-container {
+    position: relative; 
+
+} 
+
+
+.campo:focus {
+outline: none;
+border-color: #007bff;
+}
+
+.input-container .btn-no-input {
+position: absolute;
+right: 0;
+top: 50%;
+transform: translateY(-50%);
+background: transparent;
+border: none;
+padding: 0 12px;
+height: 100%;
+color: #6c757d;
+cursor: pointer;
+}
+
+.input-container .btn-no-input:hover {
+color: #343a40;
+}
+
+#submit{
+    width: 300px;
+    padding: 0.4rem;
+    font-weight: bolder;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
