@@ -44,15 +44,15 @@ document.getElementById("submit").addEventListener("click", async function (even
     if (nome.value == '' || documento.value == '' || email.value == '' || senha.value == '' || confirmaSenha.value == '') {
         alert("Preencha todos os campos")
         event.preventDefault();
-        if (nome.value == '' && documento.value != '' && email.value != '' && senha.value != '' && confirmaSenha.value != '') {
-        nome.focus();
-        } else if (nome.value != '' && documento.value == '' && email.value != '' && senha.value != '' && confirmaSenha.value != '') {
+        if (nome.value == '') {
+            nome.focus();
+        } else if (documento.value == '') {
             documento.focus();
-        } else if (nome.value != '' && documento.value != '' && email.value == '' && senha.value != '' && confirmaSenha.value != '') {
+        } else if (email.value == '') {
             email.focus();
-        } else if (nome.value!= '' && documento.value != '' && email.value != '' && senha.value == '' && confirmaSenha.value != '') {
+        } else if (senha.value == '') {
             senha.focus();
-        } else if (nome.value != '' && documento.value != '' && email.value != '' && senha.value != '' && confirmaSenha.value == '') {
+        } else if (confirmaSenha.value == '') {
             confirmaSenha.focus();
         }
         return
