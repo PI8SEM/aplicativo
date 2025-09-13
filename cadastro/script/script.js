@@ -98,13 +98,21 @@ async function createAccount(){
 
     params = new URLSearchParams(userData);
 
-    const response = await fetch(`${url}usuario/?${params.toString()}`, {
+
+    var link = `${url}usuario/?${params.toString()}`
+
+    console.log(link)
+
+
+    const response = await fetch((link), {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
     });
+
+
 
     const data = await response.json();
 

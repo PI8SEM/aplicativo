@@ -1,13 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 :root{
-    --primary-color: #6a11cb;
+    --primary-color-um: #4A4A4A;
+    --fundo-tela: #e3ecf7;
+    --font: 'Montserrat', 'arial', 'sans-serif';
+    --color-fonts: #4A4A4A;
+    
 }
+
 body {
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--fundo-tela);
+    gap: 5rem;
+    height: 90vh;
+    font-family: var(--font);
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    /* background-color: var(--fundo-tela); */
+}
+
+#titulo-cabecalho {
+    font-family: var(--font);
+    color: var(--primary-color-um);
+}
+
+#imagem-logo {
+    width: 200px;
+    border-radius: 10px;
 }
 
 #corpo-cadastro {
@@ -21,6 +54,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    color: var(--color-fonts);
+    margin-top: 2rem;
 }
 
 .campo {
