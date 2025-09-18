@@ -89,17 +89,17 @@ async function createAccount(){
     let params = null;
 
     const userData = {
-        nome: nome.value.trim(),
-        cnpj: documento.value.trim(),
-        email: email.value.trim(),
-        senha: senha.value
+        nome: 'henrique',//nome.value.trim(),
+        cnpj: '1', //documento.value.trim(),
+        email: '1', //email.value.trim(),
+        senha: '123' //senha.value
         
     };
 
     params = new URLSearchParams(userData);
 
 
-    var link = `${url}usuario/?${params.toString()}`
+    var link = `${url}usuario?${params.toString()}`
 
     console.log(link)
 
