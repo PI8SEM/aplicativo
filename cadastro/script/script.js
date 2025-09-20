@@ -13,6 +13,7 @@ const iconeOlhoCortadoConf = document.getElementById('icone-olho-cortado-conf');
 toggleSenhaBtn.addEventListener('click', function() {
 const isPassword = senha.type === 'password';
 
+var status = "";
 
 if (isPassword) {
     senha.type = 'text';
@@ -64,11 +65,18 @@ document.getElementById("submit").addEventListener("click", async function (even
     } 
     try {
     console.log("Enviando dados para a API...");
-    const response = await createAccount(); // Chamada correta com await
 
-    if (response.status === 201 || response.status === 200) {
+    const response = await createAccount().then(resposta => {
+        console.log(resposta)
+    }) 
+    
+    
+    // Chamada correta com await
+    if (status == '200') {
         alert("Usuário cadastrado com sucesso!");
-        window.location.href = "../../login/login.html"; // Redirecionamento
+        window.location.href = "../login/login.html";
+        // console.log(response);
+        return; // Redirecionamento
     } else {
         alert(`Erro no cadastro: ${response.status} - Tente novamente.`);
         console.error("Falha na API:", response);
@@ -89,35 +97,34 @@ async function createAccount(){
     let params = null;
 
     const userData = {
-        nome: 'henrique',//nome.value.trim(),
-        cnpj: '1', //documento.value.trim(),
-        email: '1', //email.value.trim(),
-        senha: '123' //senha.value
+        nome: nome.value.trim(),
+        cnpj: documento.value.trim(),
+        email: email.value.trim(),
+        senha: senha.value
         
     };
 
     params = new URLSearchParams(userData);
-
+    // console.log(params)
 
     var link = `${url}usuario?${params.toString()}`
 
-    console.log(link)
+    // console.log(link)
 
 
     const response = await fetch((link), {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
+            
+            "Accept": "*/*"
         },
-    });
+    }).then(resposta => {
+        status = resposta.status
+        return true})
 
+    // const data = response.json();
 
+    // console.log(response)
 
-    const data = await response.json();
-
-    return {
-        "status": response.status,
-        "userData": data.items[0]
-    }
+    // return response
 }
