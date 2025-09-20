@@ -74,7 +74,7 @@ document.getElementById("submit").addEventListener("click", async function (even
     // Chamada correta com await
     if (status == '200') {
         alert("Usuário cadastrado com sucesso!");
-        window.location.href = "../login/login.html";
+        window.location.href = "./login.html";
         // console.log(response);
         return; // Redirecionamento
     } else {
