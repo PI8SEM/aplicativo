@@ -37,7 +37,7 @@ document.getElementById("submit").addEventListener("click", async function (even
      console.log("Enviando dados para a API...");
      const response = await sendLogin(); // Chamada correta com await
 
-        if (resposta.ok && data.userData === 1) {
+        if (response.status == "200") {
       alert("Login bem-sucedido. Bem-vindo!");
       sessionStorage.setItem('usuario', nome);
       window.location.href = '#';
@@ -71,19 +71,19 @@ async function sendLogin(){
 
     params = new URLSearchParams(userData);
 
-    const response = await fetch(`${url}usuario/?${params.toString()}`, {
+    const response = await fetch(`${url}usuario?${params.toString()}`, {
         method: "GET",
         headers: {
             //"Content-Type": "application/json",
             "Accept": "*/*/"
         },
     });
-
+    console.log(response)
     const data = await response.json();
 
     return {
         "status": response.status,
-        "userData": data.items[0]
+        "email": data.email
     }
 
     
