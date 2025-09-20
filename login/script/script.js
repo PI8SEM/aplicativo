@@ -33,36 +33,38 @@ document.getElementById("submit").addEventListener("click", async function (even
         } 
         return
     } 
-    // try {
-    // console.log("Enviando dados para a API...");
-    // const response = await createAccount(); // Chamada correta com await
+     try {
+     console.log("Enviando dados para a API...");
+     const response = await sendLogin(); // Chamada correta com await
 
-    // if (response.status === 201 || response.status === 200) {
-    //     alert("Usuário cadastrado com sucesso!");
-    //     window.location.href = "../../login/login.html"; // Redirecionamento
-    // } else {
-    //     alert(`Erro no cadastro: ${response.status} - Tente novamente.`);
-    //     console.error("Falha na API:", response);
-    // }
-    // } 
-    // catch (error) {
-    //     alert("Ocorreu um erro de conexão. Verifique sua internet.");
-    //     console.error("Erro ao chamar createAccount:", error);
-    // }
+        if (resposta.ok && data.userData === 1) {
+      alert("Login bem-sucedido. Bem-vindo!");
+      sessionStorage.setItem('usuario', nome);
+      window.location.href = '#';
+    } else {
+      alert(`Erro no Login: ${response.status} - Tente novamente.`);
+        console.error("Falha na API:", response);
+    }
+    } 
+     catch (error) {
+         alert("Ocorreu um erro de conexão. Verifique sua internet.");
+         console.error("Erro ao chamar sendLogin:", error);
+     }
+
     }
 );
 
 
 
-async function createAccount(){
+async function sendLogin(){
     // insert into cliente (nome_cliente, CNPJ, email, senha) values (':nome', lpad(':cnpj',14,'0'), ':email', ':senha')
     let url = "https://oracleapex.com/ords/projeto_8/circuitsense/"
     let params = null;
 
     const userData = {
-        nome: nome.value.trim(),
-        cnpj: documento.value.trim(),
-        email: email.value.trim(),
+        //nome: nome.value.trim(),
+        //cnpj: documento.value.trim(),
+        email: nome.value.trim(),
         senha: senha.value
         
     };
@@ -83,4 +85,7 @@ async function createAccount(){
         "status": response.status,
         "userData": data.items[0]
     }
+
+    
+
 }
