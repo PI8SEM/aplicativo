@@ -47,7 +47,7 @@ main {
     border-radius: 10px;
 }
 
-#corpo-cadastro {
+#corpo-login {
     display: flex;
     flex-direction: column;
     align-items: center;
