@@ -45,6 +45,8 @@ main {
 #imagem-logo {
     width: 200px;
     border-radius: 10px;
+    display: block;
+    margin: 0 auto;
 }
 
 #corpo-cadastro {

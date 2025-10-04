@@ -39,8 +39,8 @@ document.getElementById("submit").addEventListener("click", async function (even
 
         if (response.status == "200") {
       alert("Login bem-sucedido. Bem-vindo!");
-      sessionStorage.setItem('usuario', nome);
-      window.location.href = '#';
+      sessionStorage.setItem('ID', response.cliente);
+      // window.location.href = '#';
     } else {
       alert(`Erro no Login: ${response.status} - Tente novamente.`);
         console.error("Falha na API:", response);
@@ -83,7 +83,7 @@ async function sendLogin(){
 
     return {
         "status": response.status,
-        "email": data.email
+        "cliente": data.id_cliente
     }
 
     

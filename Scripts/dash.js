@@ -1,5 +1,47 @@
 window.onload = function () {
 
+	/*
+async function sendLogin(){
+    // insert into cliente (nome_cliente, CNPJ, email, senha) values (':nome', lpad(':cnpj',14,'0'), ':email', ':senha')
+    let url = "https://oracleapex.com/ords/projeto_8/circuitsense/"
+    let params = null;
+
+    const userData = {
+        //nome: nome.value.trim(),
+        //cnpj: documento.value.trim(),
+        id_consumidor: nome.value.trim(),
+        id_equipamento: senha.value
+        
+    };
+
+    params = new URLSearchParams(userData);
+
+    const response = await fetch(`${url}dados?${params.toString()}`, {
+        method: "GET",
+        headers: {
+            //"Content-Type": "application/json",
+            "Accept": "*/*/" 
+			/*
+        },
+    });
+    console.log(response)
+    const data = await response.json();
+
+    return {
+        "status": response.status,
+        "email": data.email
+    }
+
+    
+
+}
+
+*/
+
+
+
+
+
 var dataPoints1 = [];
 var dataPoints2 = [];
 
