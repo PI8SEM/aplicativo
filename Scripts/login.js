@@ -1,5 +1,6 @@
 let nome = document.querySelector('#usuario');
 let senha = document.querySelector('#senha');
+const inicio = document.querySelector('#logo-marca');
 const toggleSenhaBtn = document.getElementById('toggle-senha');
 const iconeOlho = document.getElementById('icone-olho');
 const iconeOlhoCortado = document.getElementById('icone-olho-cortado');
@@ -19,7 +20,9 @@ if (isPassword) {
 }
 });
 
-
+inicio.addEventListener("click", function (){
+    window.location.href = './main.html'}
+);
 
 
 document.getElementById("submit").addEventListener("click", async function (event) {

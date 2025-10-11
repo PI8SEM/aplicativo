@@ -42,6 +42,10 @@ main {
     color: var(--primary-color-um);
 }
 
+div#logo-marca {
+    cursor: pointer;
+}
+
 #imagem-logo {
     width: 200px;
     border-radius: 10px;
@@ -71,7 +75,7 @@ label p {
     padding: 0.4rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: text;
     box-sizing: border-box;
 
 }
@@ -108,9 +112,15 @@ color: #343a40;
     width: 300px;
     padding: 0.8rem;
     font-weight: bolder;
-    border: 1px solid #ccc;
+    border: 1px solid #007bff;
     border-radius: 5px;
     cursor: pointer;
     box-sizing: border-box;
     
+}
+
+#submit:hover {
+    background-color: #007bff;
+    border: 1px solid rgb(187, 186, 186);
+    color: white;
 }
