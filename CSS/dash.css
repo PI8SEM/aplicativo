@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color-um: #4A4A4A;
+  --fundo-tela: #e3ecf7;
+  --color-fonts: #4A4A4A;
+  --cor-principal: #1f3c88;
+  --cor-principal-escura: #162d66;
+  --cor-branca: #ffffff;
+  --fonte-principal: 'Montserrat', 'Arial', 'sans-serif';
+}
+
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--fundo-tela);
+  color: var(--color-fonts);
+}
+
+/* Cabeçalho */
+header {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estrutura geral */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 20px;
+}
+
+/* Caixas dos gráficos */
+.chart-box {
+  background-color: var(--cor-branca);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  width: 95%;
+  max-width: 1200px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chart-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Título de cada gráfico */
+.chart-box h2 {
+  text-align: center;
+  color: var(--cor-principal);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* Botão */
+#submit {
+  display: block;
+  margin: 40px auto;
+  padding: 12px 32px;
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-family: var(--fonte-principal);
+}
+
+#submit:hover {
+  background-color: var(--cor-principal-escura);
+  transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header {
+    font-size: 1.4rem;
+    padding: 15px;
+  }
+
+  .chart-box {
+    width: 100%;
+    padding: 15px;
+  }
+
+  #submit {
+    width: 90%;
+    font-size: 0.95rem;
+  }
+}
