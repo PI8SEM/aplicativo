@@ -3,35 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/main.css">
     <title>Pagina Inicial</title>
 </head>
 <body>
-    
     <header class="header">
-  
-    <div class="navbar">
-    <ul class="links">
-        <li><a href="#">Início</a></li>  
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Contato</a></li>
-    </ul>
-    <div class="buttons">
-        <a href="../cadastro/cadastro.html" class="signin">Cadastra-se</a>
-        <a href="../login/login.html" class="signup">Entrar</a>
-    </div>
-  </div>
+      <div class="navbar">
+        <a href="./main.html" class="navbar-links">
+          <h2>Circuit<br>Sense</h2>
+        </a>
+        <div class="links">
+          <a href="#" class="navbar-links redirecionar">Sobre</a>
+          <a href="#" class="navbar-links redirecionar">Contato</a>
+        </div>
+        <div class="buttons">
+            <a href="./login.html" class="signup redirecionar">Entrar</a>
+            <a href="./cadastro.html" class="signin redirecionar">Cadastre-se</a>
+        </div>
 
-  </header>
+        <button id="menu-hamburguer">
+            <span class="linha"></span>
+            <span class="linha"></span>
+            <span class="linha"></span>
+        </button>
+      </div>
 
-  <section class="">
+       <div id="menu-lateral">
+        <a href="#" class="navbar-links redirecionar">Sobre</a>
+        <a href="#" class="navbar-links redirecionar">Contato</a>
+        <a href="./login.html" class="signup redirecionar">Entrar</a>
+        <a href="./cadastro.html" class="signin redirecionar">Cadastre-se</a>
+       </div>
 
-        <h2>Circuitsense</h2>
-        <p>
-          Equipamentos para análise, medição e telemetria de energia elétrica com uso de inteligencia artificial.
-        </p>
+    </header>
+    <main>
+      <section class="carrossel">
+        <div class="carrossel-container">
+            <div class="carrossel-slide">
+                <img src="../Imagens/logo.png" alt="Imagem 1">
+                <img src="../Imagens/logo.png" alt="Imagem 1">
+                <img src="../Imagens/logo.png" alt="Imagem 1">
+            </div>
+            <button class="carrossel-btn prev">&#10094;</button>
+            <button class="carrossel-btn next">&#10095;</button>
+        </div>
+      </section>
+      <section class="sobre-projeto">
+        <h2>Sobre o Projeto</h2>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus possimus quia itaque, sapiente, quidem illum quas reprehenderit inventore harum porro consequatur accusamus similique consequuntur fugiat architecto saepe. Illo, at voluptatum!
+      </section>
+    </main>
 
-  </section>
-
-
+    <script src="../Scripts/main.js"></script>
 </body>
 </html>

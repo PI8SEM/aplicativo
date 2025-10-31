@@ -9,6 +9,7 @@ const iconeOlho = document.getElementById('icone-olho');
 const iconeOlhoCortado = document.getElementById('icone-olho-cortado');
 const iconeOlhoConf = document.getElementById('icone-olho-conf');
 const iconeOlhoCortadoConf = document.getElementById('icone-olho-cortado-conf');
+const inicio = document.querySelector('#logo-marca');
 
 toggleSenhaBtn.addEventListener('click', function() {
 const isPassword = senha.type === 'password';
@@ -39,6 +40,9 @@ if (isconfPassword) {
 }
 });
 
+inicio.addEventListener("click", function (){
+    window.location.href = './main.html'}
+);
 
 
 document.getElementById("submit").addEventListener("click", async function (event) {
