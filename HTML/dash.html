@@ -1,13 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seja Bem Vindo!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/dash.css">
+  <title>Dashboard</title>
+  
+  <!-- CanvasJS -->
+  <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+
 </head>
+
 <body>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
-<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-<script src="../scripts/dash.js"></script>
+  <header>
+    Dashboard
+  </header>
+
+  <main class="dashboard">
+    <!-- Gráficos principais -->
+    <div class="chart-box">
+      <h2>Tensões (V)</h2>
+      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    </div>
+
+    <div class="chart-box">
+      <h2>Correntes (A)</h2>
+      <div id="Corrente" style="height: 370px; width: 100%;"></div>
+    </div>
+
+    <div class="chart-box">
+      <h2>Potência Ativa (W)</h2>
+      <div id="potenciaAtiva" style="height: 370px; width: 100%;"></div>
+    </div>
+
+    <div class="chart-box">
+      <h2>Potência Aparente (VA)</h2>
+      <div id="potenciaAP" style="height: 370px; width: 100%;"></div>
+    </div>
+
+    <div class="chart-box">
+      <h2>Potência Reativa (VAR) </h2>
+      <div id="PotenciaReat" style="height: 370px; width: 100%;"></div>
+    </div>
+
+    <div class="chart-box">
+      <h2>Fator de Potência</h2>
+      <div id="FP" style="height: 370px; width: 100%;"></div>
+    </div>
+
+        <div class="chart-box">
+      <h2>Fase A</h2>
+      <div id="Potencia1" style="height: 370px; width: 100%;"></div>
+    </div>
+
+        <div class="chart-box">
+      <h2>Fase B</h2>
+      <div id="Potencia2" style="height: 370px; width: 100%;"></div>
+    </div>
+
+        <div class="chart-box">
+      <h2>Fase C</h2>
+      <div id="Potencia3" style="height: 370px; width: 100%;"></div>
+    </div>
+
+    <!-- Botão (opcional) -->
+    <input type="button" value="Atualizar Dados" class="botao" id="submit" onclick="window.location.reload()">
+  </main>
+
+  <!-- Script JS principal -->
+  <script src="../Scripts/dash.js"></script>
 </body>
 </html>
