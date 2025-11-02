@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primary-color-um: #4A4A4A;
+  --fundo-tela: #f5fafa;
+  --font: 'Montserrat', 'arial', 'sans-serif';
+  --color-fonts: #4A4A4A;
+
+  --btn-padding: 10px;
+  --btn-bg: #fff;
+  --btn-primary-bg: #2969bd;
+  --btn-border-width: 1px;
+  --btn-radius: 4px;
+
+
+
+}
+
+* {
+  background-color: var(--fundo-tela);
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  /* background-color: #3a3a3a; */
+  width: 100%;
+  color: #fff;
+  padding: 15px 30px;
+}
+
+main {
+flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+footer {
+  /* background-color: var(--fundo-tela); */
+  padding: 15px 30px;
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color-um);
+}
+
+section{
+  width: 80%;
+}
+
+h2{
+  color: var(--primary-color-um);
+  font-family: var(--font);
+}
+
+p{
+  text-align: justify;
+  color: var(--primary-color-um);
+  font-family: var(--font);
+  line-height: 1.6;
+
+}
+
+h3{
+  color: var(--primary-color-um);
+  font-family: var(--font);
+}
+
+h4{
+  color: var(--primary-color-um);
+  font-family: var(--font);
+}
+
+h5{
+  color: var(--primary-color-um);
+  font-family: var(--font);
+}
+
+section figure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section img{
+  height: 200px;
+  /* border-radius: 600px; */
+}
+
+section figcaption{
+  margin-top: 10px;
+  font-family: var(--font);
+  color: var(--primary-color-um);
+  text-align: center;
+}
+
+section#introducao article{
+  display: flex;
+  gap: 50px;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+section#dispositivo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+section#dispositivo section{
+  display: flex;
+  flex-direction: row;
+
+  gap: 20px;
+  width: 100%;
+
+  padding-top: 70px;
+}
+
+section#dispositivo img{
+  height: 200px;
+  border-radius: 600px;
+}
+
+section#dispositivo section#Arduino_Leonardo img {
+  border-radius: 0px;
+}
+
+section#dispositivo section#ESP32 img{
+  width: 265px;
+  border-radius: 0px;
+
+}
+
+section#dispositivo section#Diagrama_simplificado_do_hardware{
+  flex-direction: column;
+
+}
+
+section#dispositivo section#Diagrama_simplificado_do_hardware img{
+  height: 400px;
+  border-radius: 5px;
+
+}
+
+
+#api iframe {
+  background-color: var(--fundo-tela); /* ou a cor de fundo da sua página */
+}
+
+
+.code-block {
+    background-color: #2c3e50; /* fundo escuro */
+    color: #ecf0f1; /* texto claro */
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.9em;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+    overflow-x: auto;
+    /* max-height: 300px; */
+    line-height: 1.5; /* melhora a legibilidade */
+    box-sizing: border-box; /* evita problemas de padding */
+    width: 60%;
+    min-width: 60%;
+
+}
+
+/* garante que o texto do <pre> herde o estilo e não duplique margens */
+pre {
+    display: block;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    unicode-bidi: isolate;
+    white-space: pre;
+    margin: 0; /* zera as margens duplicadas */
+    padding: 0;
+}
+
+/* <code> dentro e fora de <pre> */
+code {
+    font-family: inherit;
+    background-color: transparent;
+}
+
+/* Estilo específico para <pre><code> dentro do .code-block */
+.code-block pre {
+    white-space: pre-wrap; /* quebra de linha automática */
+    word-wrap: break-word;
+}
+
+/* opcional: barra de rolagem mais discreta em navegadores modernos */
+.code-block::-webkit-scrollbar {
+    height: 8px;
+}
+.code-block::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* ------- Correção: responsividade sem quebrar Desktop/Notebook ------- */
+/* Observação: este bloco só age em larguras menores que as indicadas,
+   portanto não altera o layout desktop existente. */
+
+/* Gera ajustes gerais para telas pequenas (até tablets grandes) */
+@media (max-width: 1199px) {
+  /* garante que as seções usem 100% e respeitem padding internos */
+  .container {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  section {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* evita overflow de imagens e iframes */
+  section img,
+  .container img,
+  header img,
+  #api iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* code-block: não ficar com largura fixa que quebre layout */
+  .code-block {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    overflow-x: auto;
+  }
+}
+
+/* Celulares grandes / Tablets (até 899px) */
+@media (max-width: 899px) {
+  /* introdução empilhada para não quebrar texto */
+  section#introducao article {
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  /* Seção dispositivos empilhada e centralizada */
+  section#dispositivo {
+    padding-top: 24px;
+    align-items: stretch;
+  }
+  section#dispositivo > section {
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100%;
+  }
+
+  /* reduz tamanho das imagens circulares para caber */
+  section img {
+    max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* figcaption e parágrafos mais legíveis */
+  section figcaption { padding: 0 8px; }
+  p { font-size: 0.98rem; line-height: 1.55; }
+
+  /* header / footer padding mais compacto */
+  header, footer { padding-left: 16px; padding-right: 16px; }
+}
+
+/* Telas pequenas (celulares até 599px) */
+@media (max-width: 599px) {
+  /* espaço interno reduzido */
+  header, footer {
+    padding: 10px 12px;
+  }
+
+  main { gap: 14px; }
+
+  section#introducao article {
+    gap: 12px;
+  }
+
+  /* garante ícones/imgs não estourarem */
+  section#dispositivo img,
+  section img {
+    max-width: 200px;
+  }
+
+  .code-block {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  /* evita overflow horizontal */
+  html, body { overflow-x: hidden; }
+}
+
+/* Small fix: se você usou regras que forçam .code-block a uma largura fixa,
+   este seletor com !important garante que em telas menores ele se comporte. */
+@media (max-width: 1199px) {
+  .code-block[style], .code-block {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
