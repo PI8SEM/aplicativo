@@ -1,5 +1,9 @@
 window.onload = async function () {
   const apiUrl = "https://oracleapex.com/ords/projeto_8/Circuitsense/dados";
+  const REFRESH_INTERVAL = 10000; // tempo de atualização de 10 segundos
+
+  
+    async function atualizarGraficos() {
 
   try {
     console.log("Buscando dados da API...");
@@ -19,12 +23,18 @@ window.onload = async function () {
     // 🔹 2. Criar todos os conjuntos de dataPoints com segurança
     const dataPoints = gerarTodosDataPoints(dataArrays);
 
-    // 🔹 3. Criar e renderizar gráficos
     criarGraficos(dataPoints);
 
+    document.getElementById("ultimo-update").textContent =
+    "Última atualização: " + new Date();
   } catch (error) {
     console.error("Erro na requisição:", error);
   }
+    }
+
+  await atualizarGraficos();
+  setInterval(atualizarGraficos, REFRESH_INTERVAL);
+
 };
 
 // ===============================
@@ -226,3 +236,4 @@ function criarGrafico({ id, title, unit, series }) {
 
   chart.render();
 }
+
