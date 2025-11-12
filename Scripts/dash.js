@@ -226,6 +226,7 @@ function criarGrafico({ id, title, unit, series }) {
       suffix: unit ? ` ${unit}` : ""
     },
             legend: {
+            cursor: "pointer",
             itemclick: function (e) {
                 //console.log("legend click: " + e.dataPointIndex);
                 //console.log(e);
