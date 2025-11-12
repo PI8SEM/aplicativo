@@ -17,13 +17,21 @@
     <main id="principal">
         <section id="corpo">
             <!-- nome_cliente, CNPJ, email, senha -->
-           
+           <form action="Baixar" id="formulario">
+            <div id="container-nome" class="input-container">
+                <label for="nome"><p>Nome do Arquivo</p></label>
+                <input type="text" name="nome" id="nome" class="campo">
+            </div>
 
-
+            <div id="container-botao">
+                <input type="button" value="Criar" class="botao" id="submit" onclick="window.location.href='relatorios.html'">
+            </div>
             
             <div id="container-botao">
                 <input type="button" value="Baixar" class="botao" id="submit" onclick="window.location.href='relatorios.html'">
             </div>
+
+            </form>
         </section>
     </main>
     <footer>
