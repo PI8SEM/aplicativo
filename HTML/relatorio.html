@@ -1,29 +1,160 @@
-<!DOCTYPE html>
+<!-- ...existing code... -->
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/relatorio.css">
     <title>Relatórios</title>
 </head>
+
 <body>
     <header id="cabecalho">
         <section>
             <h1 id="titulo-cabecalho">Relatórios</h1>
         </section>
-    </header> 
+    </header>
 
-    <main id="principal">
+    <main id="principal" class="container">
         <section id="corpo">
-            <!-- nome_cliente, CNPJ, email, senha -->
-           
 
+            <!-- conteúdo do relatório aqui -->
 
-            
-            <div id="container-botao">
-                <input type="button" value="Baixar" class="botao" id="submit" onclick="window.location.href='relatorios.html'">
-            </div>
+            <!-- formulário para gerar relatório -->
+            <form id="relatorio-form" action="#" method="get" aria-label="Formulário de geração de relatórios">
+                <div class="form-row">
+                    <label for="empresa">Empresa</label>
+                    <select id="empresa" name="empresa" required>
+                        <option value="" disabled selected>Selecione a empresa</option>
+                        <option value="circuit-sense-sa">circuit sense SA</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="unidade">Unidade</label>
+                    <select id="unidade" name="unidade" required>
+                        <option value="" disabled selected>Selecione a unidade</option>
+                        <option value="unidade-nacoes-unidas">unidade nações unidas</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="data-inicio">Data início da análise</label>
+                    <input type="date" id="data-inicio" name="data_inicio" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="data-fim">Data fim da análise</label>
+                    <input type="date" id="data-fim" name="data_fim" required>
+                </div>
+
+                <!-- ...existing code... -->
+                <div class="form-row">
+                    <label for="analise">Análise desejada</label>
+
+                    <!-- componente multi-pick custom -->
+                    <div class="multiselect" id="analise-multiselect" tabindex="0" aria-haspopup="listbox"
+                        aria-expanded="false">
+                        <div class="multi-selected" id="multi-selected" aria-live="polite">
+                            <span class="placeholder">Selecione a(s) análise(s)</span>
+                        </div>
+                        <button type="button" class="multiselect-toggle" aria-label="Abrir lista de análises">▾</button>
+
+                        <ul class="multiselect-dropdown" role="listbox" aria-multiselectable="true" id="analise-list"
+                            hidden>
+                            <!-- cada li tem data-value e data-desc; JS cria inputs hidden para submissão -->
+                            <li role="option" data-value="tendencia-tensao-rms"
+                                data-desc="Tendência de Tensão RMS – Avalia a variação da tensão ao longo do tempo para identificar quedas, elevações ou desvios do valor nominal.">
+                                <label><input type="checkbox"> Tendência de Tensão RMS</label>
+                            </li>
+                            <li role="option" data-value="tendencia-corrente-rms"
+                                data-desc="Tendência de Corrente RMS – Monitora o comportamento da corrente em regime permanente, detectando sobrecargas, fugas ou desequilíbrios entre fases.">
+                                <label><input type="checkbox"> Tendência de Corrente RMS</label>
+                            </li>
+                            <li role="option" data-value="evolucao-potencia"
+                                data-desc="Evolução da Potência Ativa e Reativa – Analisa o consumo e o comportamento do fator de potência, auxiliando na identificação de má compensação reativa.">
+                                <label><input type="checkbox"> Evolução da Potência Ativa e Reativa</label>
+                            </li>
+                            <li role="option" data-value="perfil-demanda"
+                                data-desc="Perfil Diário ou Horário de Demanda – Examina o consumo de energia em função do tempo, revelando horários de pico e variações operacionais.">
+                                <label><input type="checkbox"> Perfil Diário ou Horário de Demanda</label>
+                            </li>
+                            <li role="option" data-value="sags-swells"
+                                data-desc="Afundamentos e Elevações de Tensão (Sags/Swells) – Detecta eventos transitórios de curta duração que impactam a estabilidade e a qualidade de energia.">
+                                <label><input type="checkbox"> Afundamentos e Elevações de Tensão (Sags/Swells)</label>
+                            </li>
+                            <li role="option" data-value="transitorios"
+                                data-desc="Transitórios de Corrente e Tensão – Identifica picos momentâneos causados por partidas de motores, comutações ou curtos de curta duração.">
+                                <label><input type="checkbox"> Transitórios de Corrente e Tensão</label>
+                            </li>
+                            <li role="option" data-value="variacao-frequencia"
+                                data-desc="Variação de Frequência – Verifica a estabilidade da frequência da rede, podendo indicar problemas de sincronismo ou desequilíbrio de geração/carga.">
+                                <label><input type="checkbox"> Variação de Frequência</label>
+                            </li>
+                            <li role="option" data-value="tendencia-temperatura"
+                                data-desc="Tendência de Temperatura – Correlaciona o aumento de temperatura com corrente ou potência, permitindo diagnosticar conexões defeituosas ou sobreaquecimento.">
+                                <label><input type="checkbox"> Tendência de Temperatura</label>
+                            </li>
+                            <li role="option" data-value="histograma-temporal"
+                                data-desc="Histograma Temporal de Operação – Classifica as medições em faixas de operação (nominal, alerta, crítica), indicando o percentual de tempo em cada faixa.">
+                                <label><input type="checkbox"> Histograma Temporal de Operação</label>
+                            </li>
+                            <li role="option" data-value="desvio-padrao-temporal"
+                                data-desc="Análise de Desvio Padrão Temporal – Mede a variabilidade de tensão ou corrente ao longo do tempo, identificando ruídos e instabilidades progressivas.">
+                                <label><input type="checkbox"> Análise de Desvio Padrão Temporal</label>
+                            </li>
+                            <li role="option" data-value="correlacao-fases"
+                                data-desc="Correlação Temporal entre Fases – Analisa o sincronismo e a relação entre as fases, detectando desequilíbrios ou falhas de simetria.">
+                                <label><input type="checkbox"> Correlação Temporal entre Fases</label>
+                            </li>
+                            <li role="option" data-value="harmonicos-thd"
+                                data-desc="Análise de Harmônicos ao Longo do Tempo (THD) – Acompanha a distorção harmônica total e sua evolução, apontando interferências de cargas não lineares.">
+                                <label><input type="checkbox"> Análise de Harmônicos (THD)</label>
+                            </li>
+                            <li role="option" data-value="assinatura-ruido"
+                                data-desc="Assinatura Temporal de Ruído Elétrico – Monitora padrões de ruído de alta frequência, úteis para avaliar degradação de isolamento e interferências.">
+                                <label><input type="checkbox"> Assinatura Temporal de Ruído Elétrico</label>
+                            </li>
+                            <li role="option" data-value="deriva-parametros"
+                                data-desc="Análise de Deriva de Parâmetros Elétricos – Detecta alterações lentas e cumulativas em resistência, impedância ou fator de potência ao longo do tempo.">
+                                <label><input type="checkbox"> Análise de Deriva de Parâmetros Elétricos</label>
+                            </li>
+                            <li role="option" data-value="eventos-recorrentes"
+                                data-desc="Análise de Eventos Recorrentes – Identifica padrões de falhas ou distúrbios que ocorrem em horários ou ciclos regulares.">
+                                <label><input type="checkbox"> Análise de Eventos Recorrentes</label>
+                            </li>
+                            <li role="option" data-value="series-temporais"
+                                data-desc="Análise de Séries Temporais (ARIMA, LSTM) – Realiza previsão de tendências futuras de tensão, corrente ou temperatura com base em dados históricos.">
+                                <label><input type="checkbox"> Análise de Séries Temporais (ARIMA, LSTM)</label>
+                            </li>
+                            <li role="option" data-value="detec-anomalias"
+                                data-desc="Detecção de Anomalias Temporais – Identifica comportamentos fora do padrão por meio da análise de janelas de tempo móveis.">
+                                <label><input type="checkbox"> Detecção de Anomalias Temporais</label>
+                            </li>
+                            <li role="option" data-value="analise-espectral"
+                                data-desc="Análise Espectral Temporal (STFT/Wavelet) – Localiza distúrbios tanto no domínio do tempo quanto da frequência, útil para eventos intermitentes.">
+                                <label><input type="checkbox"> Análise Espectral Temporal (STFT/Wavelet)</label>
+                            </li>
+                            <li role="option" data-value="confiabilidade-temporal"
+                                data-desc="Análise de Confiabilidade Temporal (MTBF/MTTF) – Calcula o tempo médio entre falhas, ajudando a quantificar a confiabilidade do sistema.">
+                                <label><input type="checkbox"> Análise de Confiabilidade Temporal (MTBF/MTTF)</label>
+                            </li>
+                            <li role="option" data-value="taxa-ocorrencia"
+                                data-desc="Taxa de Ocorrência de Eventos – Mede a frequência com que ocorrem falhas, transitórios ou desvios, permitindo avaliar a estabilidade operacional.">
+                                <label><input type="checkbox"> Taxa de Ocorrência de Eventos</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- campo hidden para fallback será criado pelo JS com name="analise[]" por item selecionado -->
+                </div>
+                <!-- ...existing code... -->
+
+                <div id="container-botao">
+                    <input type="button" value="Baixar" class="botao" id="submit"
+                        onclick="window.location.href='relatorios.html'">
+                </div>
         </section>
     </main>
     <footer>
@@ -31,4 +162,5 @@
     </footer>
     <script src="../Scripts/relatorio.js"></script>
 </body>
+
 </html>

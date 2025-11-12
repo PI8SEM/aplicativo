@@ -177,7 +177,7 @@ section#dispositivo section#Diagrama_simplificado_do_hardware img{
     border-radius: 6px;
     margin-top: 15px;
     overflow-x: auto;
-    /* max-height: 300px; */
+    max-height: 300px;
     line-height: 1.5; /* melhora a legibilidade */
     box-sizing: border-box; /* evita problemas de padding */
     width: 60%;
