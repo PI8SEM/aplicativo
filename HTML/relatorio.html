@@ -22,7 +22,7 @@
             <!-- conteúdo do relatório aqui -->
 
             <!-- formulário para gerar relatório -->
-            <form id="relatorio-form" action="#" method="get" aria-label="Formulário de geração de relatórios">
+            <form id="relatorio-form" method="get" aria-label="Formulário de geração de relatórios">
                 <div class="form-row">
                     <label for="empresa">Empresa</label>
                     <select id="empresa" name="empresa" required>
@@ -152,9 +152,11 @@
                 <!-- ...existing code... -->
 
                 <div id="container-botao">
-                    <input type="button" value="Baixar" class="botao" id="submit"
-                        onclick="window.location.href='relatorios.html'">
+                    <input type="button" value="Baixar" class="botao" id="submit">
+                        <!-- onclick="window.location.href='relatorios.html'"> -->
                 </div>
+
+            </form>
         </section>
     </main>
     <footer>

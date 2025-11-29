@@ -1,25 +1,63 @@
 document.getElementById("submit").addEventListener("click", async function (event) {
 
-  try {
-    console.log("Enviando dados para a API...");
-    const response = await baixarPDF(); // Chamada correta com await
+  requestAgentReport()
 
-    if (response.status == "200") {
-      alert("Login bem-sucedido. Bem-vindo!");
 
-      // window.location.href = '#';
-    } else {
-      alert(`Erro no Login: ${response.status} - Tente novamente.`);
-      console.error("Falha na API:", response);
-    }
-  }
-  catch (error) {
-    alert("Ocorreu um erro de conexão. Verifique sua internet.");
-    console.error("Erro ao chamar baixarPDF:", error);
-  }
+  // try {
+  //   console.log("Enviando dados para a API...");
+  //   const response = await baixarPDF(); // Chamada correta com await
+
+  //   if (response.status == "200") {
+  //     alert("Login bem-sucedido. Bem-vindo!");
+
+  //     // window.location.href = '#';
+  //   } else {
+  //     alert(`Erro no Login: ${response.status} - Tente novamente.`);
+  //     console.error("Falha na API:", response);
+  //   }
+  // }
+  // catch (error) {
+  //   alert("Ocorreu um erro de conexão. Verifique sua internet.");
+  //   console.error("Erro ao chamar baixarPDF:", error);
+  // }
 
 }
 );
+
+
+
+async function requestAgentReport() {
+
+  let instances = {
+    development: "https://n8n-n8n.wnmocf.easypanel.host/webhook-test/create_document",
+    production: "https://n8n-n8n.wnmocf.easypanel.host/webhook/create_document"
+  }
+
+  let url = instances.development;
+
+  let body = {
+    empresa: document.getElementById("empresa").value,
+    unidade: document.getElementById("unidade").value,
+    data_inicio: document.getElementById("data-inicio").value,
+    data_fim: document.getElementById("data-fim").value,
+    analises: [...document.getElementById("multi-selected")
+      .querySelectorAll(".chip-label")]
+      .map(el => el.textContent.trim())
+  };
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "*/*"
+    },
+    body: JSON.stringify(body)
+  });
+
+  let data = await response.json();
+  console.log(data);
+}
+
 
 
 async function baixarPDF() {
@@ -45,7 +83,7 @@ async function baixarPDF() {
 
 }
 
-// ...existing code...
+
 document.addEventListener('DOMContentLoaded', function () {
   const multiselect = document.getElementById('analise-multiselect');
   const dropdown = document.getElementById('analise-list');
@@ -136,4 +174,3 @@ document.addEventListener('DOMContentLoaded', function () {
   
 }
 );
-// ...existing code...
