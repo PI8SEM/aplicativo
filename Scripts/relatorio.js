@@ -1,7 +1,7 @@
 document.getElementById("submit").addEventListener("click", async function (event) {
 
   requestAgentReport()
-
+   carregarListaRelatorios();
 
   // try {
   //   console.log("Enviando dados para a API...");
@@ -174,3 +174,50 @@ document.addEventListener('DOMContentLoaded', function () {
   
 }
 );
+
+
+document.getElementById("fechar-modal").addEventListener("click", () => {
+    document.getElementById("modal-relatorios").classList.remove("show");
+});
+
+async function baixarArquivo(nome) {
+      const API_URL = "https://projeto-integrador-api-documento.wnmocf.easypanel.host/";  
+  window.location.href = `${API_URL}/relatorio?nome_arquivo=${encodeURIComponent(nome)}`;
+}
+
+
+async function carregarListaRelatorios() {
+    const modal = document.getElementById("modal-relatorios");
+    const lista = document.getElementById("lista-relatorios");
+
+    const API_URL = "https://projeto-integrador-api-documento.wnmocf.easypanel.host/";
+
+    lista.innerHTML = "<li>Carregando...</li>";
+    modal.classList.add("show");
+
+    try {
+        const resp = await fetch(API_URL + "/listar-relatorios");
+        const data = await resp.json();
+
+        lista.innerHTML = "";
+
+        data.arquivos.forEach(arquivo => {
+            const li = document.createElement("li");
+            li.style.margin = "8px 0";
+            li.innerHTML = `
+                ${arquivo}
+                <button class="botao" style="margin-left:10px"
+                    onclick="baixarArquivo('${arquivo}')">Baixar</button>
+            `;
+            lista.appendChild(li);
+        });
+
+    } catch (err) {
+        lista.innerHTML = "<li>Erro ao buscar arquivos</li>";
+        console.error(err);
+    }
+}
+
+document.getElementById("recarregar-relatorios").addEventListener("click", () => {
+    carregarListaRelatorios();
+});

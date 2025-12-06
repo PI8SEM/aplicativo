@@ -321,3 +321,17 @@ option{
   .multiselect-dropdown{ max-height:280px; }
 }
 
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,1);
+  display: none; /* oculto por padrão */
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal.show {
+  display: flex; /* aparece quando adicionamos a classe show */
+}
+
